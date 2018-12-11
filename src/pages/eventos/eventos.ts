@@ -4,13 +4,6 @@ import { EventoService } from '../../services/domain/evento.service';
 import { EventoDTO } from '../../models/evento.dto';
 import { API_CONFIG } from '../../config/api.config';
 
-/**
- * Generated class for the EventosPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-eventos',
@@ -32,7 +25,6 @@ export class EventosPage {
       this.items = response;
     },
     error => {});
-
   }
 
 }

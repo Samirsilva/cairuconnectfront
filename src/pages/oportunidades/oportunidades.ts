@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { API_CONFIG } from '../../config/api.config';
+import { OportunidadeDTO } from '../../models/oportunidade.dto';
+import { OportunidadeService } from '../../services/domain/oportunidade.service';
 
 @IonicPage()
 @Component({
@@ -8,11 +11,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class OportunidadesPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  bucketUrl : string = API_CONFIG.bucketBaseUrl
+  items  : OportunidadeDTO[];
+
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public oportunidadeService : OportunidadeService) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad OportunidadesPage');
+    this.oportunidadeService.findAll().subscribe(response => {
+      this.items = response;
+    },
+    error => {});
   }
 
 }
