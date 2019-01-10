@@ -32,6 +32,15 @@ creds : CredencialDTO = {
     this.menu.swipeEnable(true);
   }
   
+  ionViewDidEnter(){
+    this.auth.refreshToken()
+    .subscribe(response => {
+      this.auth.sucessfullogin(response.headers.get('Authorization'));
+      this.navCtrl.setRoot('EventosPage');
+    },
+    error => {});   
+  }
+
   login(){
     this.auth.authenticate(this.creds)
     .subscribe(response => {

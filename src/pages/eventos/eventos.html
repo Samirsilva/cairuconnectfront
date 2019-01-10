@@ -6,20 +6,7 @@
       </button>
       <ion-title>Eventos</ion-title>
     </ion-navbar>
-  
   </ion-header>
-
-<!--<ion-content padding>
-    <ion-list>
-        <button ion-item *ngFor = "let item of items">
-          <ion-thumbnail item-start>
-            <img src="{{bucketUrl}}/event{{item.id}}.jpg">
-          </ion-thumbnail>
-          <h2>{{ item.nome }}</h2>
-        </button>
-      </ion-list>
-
-</ion-content>-->
 
 <ion-card ion-item *ngFor = "let item of items">
     <img src="{{bucketUrl}}/event{{item.id}}.jpg">
