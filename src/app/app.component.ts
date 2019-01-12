@@ -42,7 +42,7 @@ export class MyApp {
     });
   }
 
-  openPage(page : {title:string, component:String}) {
+  openPage(page : {title:string, component:string}) {
 
     switch(page.title){
       case 'Sair' : 
@@ -53,6 +53,5 @@ export class MyApp {
       default:
       this.nav.setRoot(page.component);
     }
-    this.nav.setRoot(page.component);
   }
 }

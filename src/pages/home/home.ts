@@ -50,4 +50,7 @@ creds : CredencialDTO = {
     error => {});
     
   }
+  signup(){
+    this.navCtrl.push('SignupPage');
+  }
 }
