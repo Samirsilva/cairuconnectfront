@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Detalhes da noticia</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <img [src]="item?.imageUrl || 'assets/imgs/event.jpg'"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{item?.informe}}
+        </ion-card-title>
+      <p>
+        {{item?.fonte}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

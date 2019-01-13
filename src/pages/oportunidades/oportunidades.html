@@ -9,7 +9,8 @@
   
   </ion-header>
 
-<ion-card ion-item *ngFor = "let item of items">
+  <ion-content padding>
+<ion-card ion-item *ngFor = "let item of items" (click) = "showDetail()">
     <img src="{{bucketUrl}}/oportu{{item.id}}.jpg">
     <ion-card-content>
       <ion-card-title>
@@ -21,3 +22,4 @@
       </p>
     </ion-card-content>
 </ion-card>
+</ion-content>

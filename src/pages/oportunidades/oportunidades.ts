@@ -26,5 +26,7 @@ export class OportunidadesPage {
     },
     error => {});
   }
-
+  showDetail(){
+    this.navCtrl.push('OportunidadesDetailPage');
+  }
 }

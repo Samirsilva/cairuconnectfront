@@ -25,5 +25,7 @@ export class NoticiasPage {
     },
     error => {});
   }
-
+  showDetail(){
+    this.navCtrl.push('NoticiasDetailPage');
+  }
 }
