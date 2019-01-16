@@ -21,9 +21,7 @@ export class EventosPage {
   }
 
   ionViewDidLoad() {
-    this.eventoService.findAll().subscribe(response => {
-      this.items = response;
-    },
+    this.eventoService.findAll().subscribe(response => {this.items = response;},
     error => {});
   }
 

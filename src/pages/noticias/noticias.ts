@@ -21,9 +21,7 @@ export class NoticiasPage {
   }
  
   ionViewDidLoad() {
-    this.noticiaService.findAll().subscribe(response => {
-      this.items = response;
-    },
+    this.noticiaService.findAll().subscribe(response => {this.items = response;},
     error => {});
   }
   

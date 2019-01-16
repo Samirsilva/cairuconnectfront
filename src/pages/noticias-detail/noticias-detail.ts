@@ -18,14 +18,9 @@ export class NoticiasDetailPage {
   }
 
   ionViewDidLoad() {
-
     let noticia_id = this.navParams.get('noticia_id');
-    this.noticiaService.findById(noticia_id)
-    .subscribe(response => {
-      this.item = response;
-    },
-    error => {}
-    );
     
+    this.noticiaService.findById(noticia_id).subscribe(response => {this.item = response;},
+    error => {});
   }
 }

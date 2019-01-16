@@ -22,28 +22,27 @@ export class ProfilePage {
 
   ionViewDidLoad() {
     let localUser = this.storage.getLocalUser();
-    if (localUser && localUser.email) {
-      this.usuarioService.findByEmail(localUser.email)
-      .subscribe(response => {
-        this.usuario = response;
-        this.getImageIfExists();
-      },
-      error => {
     
+    if (localUser && localUser.email) {
+      this.usuarioService.findByEmail(localUser.email).subscribe(response => {this.usuario = response;
+      this.getImageIfExists();},
+      
+      error => {
         if (error.status == 403){
           this.navCtrl.setRoot('HomePage');
         }
       });
+    
     } else {
       this.navCtrl.setRoot('HomePage');
     }
   }
 
   getImageIfExists(){
-    this.usuarioService.getimageFromBucket(this.usuario.id)
-    .subscribe(response => {
+    this.usuarioService.getimageFromBucket(this.usuario.id).subscribe(response => {
       this.usuario.imageURL = `${API_CONFIG.bucketBaseUrl}/cp${this.usuario.id}.jpg`;
     },
+    
     error =>{});
   }
 }

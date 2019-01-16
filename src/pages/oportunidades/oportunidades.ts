@@ -21,11 +21,10 @@ export class OportunidadesPage {
   }
 
   ionViewDidLoad() {
-    this.oportunidadeService.findAll().subscribe(response => {
-      this.items = response;
-    },
+    this.oportunidadeService.findAll().subscribe(response => {this.items = response;},
     error => {});
   }
+  
   showDetail(oportunidade_id : string){
     this.navCtrl.push('OportunidadesDetailPage', {oportunidade_id : oportunidade_id});
   }

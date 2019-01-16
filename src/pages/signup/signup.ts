@@ -27,15 +27,13 @@ export class SignupPage {
   }
 
   signupUser(){
-    this.usuarioService.insert(this.formGroup.value)
-      .subscribe(response => {
-        this.showInsertOk();
-      },
-      error => {});  
-    }
-
-    showInsertOk() {
-      let alert = this.alertCtrl.create({
+    this.usuarioService.insert(this.formGroup.value).subscribe(response => {this.showInsertOk();},
+      
+    error => {});  
+  }
+    
+  showInsertOk() {  
+    let alert = this.alertCtrl.create({
         title: 'Sucesso!',
         message: 'Cadastro efetuado com sucesso',
         enableBackdropDismiss: false,
@@ -49,5 +47,5 @@ export class SignupPage {
         ]
       });
       alert.present();
-    }
+  }
 }
