@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { OportunidadeDTO } from '../../models/oportunidade.dto';
+import { OportunidadeService } from '../../services/domain/oportunidade.service';
 
 @IonicPage()
 @Component({
@@ -11,21 +12,13 @@ export class OportunidadesDetailPage {
 
   item : OportunidadeDTO
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public oportunidadeService : OportunidadeService) {
   }
 
   ionViewDidLoad() {
-    this.item = {
-      id : "1",
-      nomeEmpresa : "Emrpesa fic",
-      curso : "google.com",
-      semestre : "1",
-      email : "samir",
-      tipoVaga : "sei la",
-      cargaHoraria : "23324",
-      remuneracao : "234234",
-      beneficios : "234234",
-      requisitos : "stri2342ng;"
-    }
+    let oportunidade_id = this.navParams.get('oportunidade_id');
+    
+    this.oportunidadeService.findById(oportunidade_id).subscribe(response => {this.item = response;}, 
+    error => {});
   }
 }

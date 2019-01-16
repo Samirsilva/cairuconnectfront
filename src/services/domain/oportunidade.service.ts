@@ -10,7 +10,16 @@ export class OportunidadeService{
     constructor(public http: HttpClient){
     }
 
+    findById(oportunidade_id  :string){
+        return this.http.get<OportunidadeDTO>(`${API_CONFIG.baseUrl}/oportunidades/${oportunidade_id}`)
+    }
+
     findAll() : Observable<OportunidadeDTO[]> {
         return this.http.get<OportunidadeDTO[]>(`${API_CONFIG.baseUrl}/oportunidades`);
+    }
+
+    getimageFromBucket(id : string) : Observable<any>{
+        let url = `${API_CONFIG.bucketBaseUrl}/oportu${id}.jpg`
+        return this.http.get(url, {responseType : 'blob'});
     }
 }

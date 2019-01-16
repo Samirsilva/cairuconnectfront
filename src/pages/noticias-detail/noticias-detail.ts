@@ -1,13 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { NoticiaDTO } from '../../models/noticia.dto';
-
-/**
- * Generated class for the NoticiasDetailPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { NoticiaService } from '../../services/domain/noticia.service';
 
 @IonicPage()
 @Component({
@@ -18,14 +12,20 @@ export class NoticiasDetailPage {
 
   item : NoticiaDTO
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams,
+    public noticiaService : NoticiaService) {
   }
 
   ionViewDidLoad() {
-    this.item = {
-      id : "1",
-      informe : "Teste",
-      fonte : "google.com"
-    }
+
+    let noticia_id = this.navParams.get('noticia_id');
+    this.noticiaService.findById(noticia_id)
+    .subscribe(response => {
+      this.item = response;
+    },
+    error => {}
+    );
+    
   }
 }

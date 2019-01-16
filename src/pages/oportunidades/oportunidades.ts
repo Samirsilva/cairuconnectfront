@@ -26,7 +26,7 @@ export class OportunidadesPage {
     },
     error => {});
   }
-  showDetail(){
-    this.navCtrl.push('OportunidadesDetailPage');
+  showDetail(oportunidade_id : string){
+    this.navCtrl.push('OportunidadesDetailPage', {oportunidade_id : oportunidade_id});
   }
 }

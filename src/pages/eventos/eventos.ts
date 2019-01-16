@@ -27,7 +27,7 @@ export class EventosPage {
     error => {});
   }
 
-  showDetail(){
-    this.navCtrl.push('EventoDetailPage');
+  showDetail(evento_id : string){
+    this.navCtrl.push('EventoDetailPage', {evento_id : evento_id});
   }
 }

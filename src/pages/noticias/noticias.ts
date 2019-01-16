@@ -10,22 +10,24 @@ import { NoticiaService } from '../../services/domain/noticia.service';
   templateUrl: 'noticias.html',
 })
 export class NoticiasPage {
-
+ 
   bucketUrl : string = API_CONFIG.bucketBaseUrl
   items  : NoticiaDTO[];
 
-  constructor(public navCtrl: NavController, 
-              public navParams: NavParams,
-              public noticiaSevice : NoticiaService) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public noticiaService : NoticiaService) {
   }
-
+ 
   ionViewDidLoad() {
-    this.noticiaSevice.findAll().subscribe(response => {
+    this.noticiaService.findAll().subscribe(response => {
       this.items = response;
     },
     error => {});
   }
-  showDetail(){
-    this.navCtrl.push('NoticiasDetailPage');
+  
+  showDetail(noticia_id : string){
+    this.navCtrl.push('NoticiasDetailPage', {noticia_id : noticia_id});
   }
 }

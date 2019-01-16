@@ -10,7 +10,16 @@ export class EventoService{
     constructor(public http: HttpClient){
     }
 
+    findById(evento_id  :string){
+        return this.http.get<EventoDTO>(`${API_CONFIG.baseUrl}/eventos/${evento_id}`)
+    }
+
     findAll() : Observable<EventoDTO[]> {
         return this.http.get<EventoDTO[]>(`${API_CONFIG.baseUrl}/eventos`);
+    }
+
+    getimageFromBucket(id : string) : Observable<any>{
+        let url = `${API_CONFIG.bucketBaseUrl}/evento${id}.jpg`
+        return this.http.get(url, {responseType : 'blob'});
     }
 }
