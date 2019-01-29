@@ -9,16 +9,14 @@ import { HttpHeaders, HttpClient } from "@angular/common/http";
 export class UsuarioService {
 
     constructor(public http : HttpClient, public storage : StorageService){
-
     }
 
-    findByEmail(email : string) : Observable<UsuarioDTO>{
+    findByEmail(email : string){
         return this.http.get<UsuarioDTO>(`${API_CONFIG.baseUrl}/usuarios/email?value=${email}`);
     }
 
     getimageFromBucket(id : string ) : Observable<any>{
         let url = `${API_CONFIG.bucketBaseUrl}/cp${id}.jpg`
-
         return this.http.get(url, {responseType : 'blob'});
     }
 

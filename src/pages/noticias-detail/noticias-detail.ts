@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { NoticiaDTO } from '../../models/noticia.dto';
 import { NoticiaService } from '../../services/domain/noticia.service';
+import { API_CONFIG } from '../../config/api.config';
 
 @IonicPage()
 @Component({
@@ -16,11 +17,21 @@ export class NoticiasDetailPage {
     public navParams: NavParams,
     public noticiaService : NoticiaService) {
   }
-
+ 
   ionViewDidLoad() {
     let noticia_id = this.navParams.get('noticia_id');
     
-    this.noticiaService.findById(noticia_id).subscribe(response => {this.item = response;},
+    this.noticiaService.findById(noticia_id).subscribe(response => {
+      this.item = response;
+      this.getImageIfExists()
+    },
     error => {});
+  }
+  getImageIfExists(){
+    this.noticiaService.getimageFromBucket(this.item.id).subscribe(response => {
+      this.item.imageUrl = `${API_CONFIG.bucketBaseUrl}/notice${this.item.id}.jpg`;
+    },
+    
+    error =>{});
   }
 }

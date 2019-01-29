@@ -3,4 +3,5 @@ export interface  EventoDTO {
     nome : string;
     data : string;
     descricao : string;
+    imageUrl? : string;
 }

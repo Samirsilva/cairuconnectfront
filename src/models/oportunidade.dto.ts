@@ -9,4 +9,5 @@ export interface  OportunidadeDTO {
     remuneracao : string;
     beneficios : string;
     requisitos : string;
+    imageUrl? :string;
 }

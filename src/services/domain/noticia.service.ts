@@ -19,7 +19,7 @@ export class NoticiaService{
     }
  
     getimageFromBucket(id : string) : Observable<any>{
-        let url = `${API_CONFIG.bucketBaseUrl}/noticia${id}.jpg`
+        let url = `${API_CONFIG.bucketBaseUrl}/notice${id}.jpg`
         return this.http.get(url, {responseType : 'blob'});
     }
 }

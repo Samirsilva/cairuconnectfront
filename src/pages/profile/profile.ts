@@ -24,7 +24,7 @@ export class ProfilePage {
     let localUser = this.storage.getLocalUser();
     
     if (localUser && localUser.email) {
-      this.usuarioService.findByEmail(localUser.email).subscribe(response => {this.usuario = response;
+      this.usuarioService.findByEmail(localUser.email).subscribe(response => {this.usuario = response as UsuarioDTO;
       this.getImageIfExists();},
       
       error => {
