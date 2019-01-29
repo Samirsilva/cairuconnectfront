@@ -12,7 +12,8 @@ import { API_CONFIG } from '../../config/api.config';
 export class EventosPage {
 
   bucketUrl : string = API_CONFIG.bucketBaseUrl
-  items  : EventoDTO[];
+  items  : EventoDTO[] = [];
+  page : number = 0;
 
   constructor(
     public navCtrl: NavController, 
@@ -27,7 +28,11 @@ export class EventosPage {
 
   loadData(){
     let loader = this.presentloading();
-    this.eventoService.findAll().subscribe(response => {this.items = response; loader.dismiss()},
+    this.eventoService.findAll()
+    .subscribe(response => {
+      this.items = response; 
+      loader.dismiss()},
+ 
     error => {loader.dismiss()});
   }
 
@@ -47,6 +52,14 @@ export class EventosPage {
     this.loadData();
     setTimeout(() => {
       refresher.complete();
+    }, 1000);
+  }
+
+  doinfinite(infiniteScroll){
+    this.page ++;
+    this.loadData();
+    setTimeout(() => {
+      infiniteScroll.complete();
     }, 1000);
   }
 }

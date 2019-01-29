@@ -18,6 +18,9 @@ export class EventoService{
     findAll() : Observable<EventoDTO[]> {
         return this.http.get<EventoDTO[]>(`${API_CONFIG.baseUrl}/eventos`);
     }
+    findPageEvento(page : number = 0, linesPage : number = 24) : Observable<EventoDTO[]> {
+        return this.http.get<EventoDTO[]>(`${API_CONFIG.baseUrl}/eventos?pageEventos&page=${page}&linesPage=${linesPage}`);
+    }
 
     getimageFromBucket(id : string) : Observable<any>{
         let url = `${API_CONFIG.bucketBaseUrl}/event${id}.jpg`
