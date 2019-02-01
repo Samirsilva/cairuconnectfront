@@ -1,8 +1,8 @@
-import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
 import { NoticiaDTO } from "../../models/noticia.dto";
 import { API_CONFIG } from "../../config/api.config";
+import { Observable } from "rxjs/Observable";
+import { Injectable } from "@angular/core";
 
 @Injectable()
 export class NoticiaService{
