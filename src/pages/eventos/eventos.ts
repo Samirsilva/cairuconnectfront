@@ -11,38 +11,39 @@ import { API_CONFIG } from '../../config/api.config';
 })
 export class EventosPage {
 
-  bucketUrl : string = API_CONFIG.bucketBaseUrl
-  items  : EventoDTO[] = [];
-  page : number = 0;
+  bucketUrl: string = API_CONFIG.bucketBaseUrl
+  items: EventoDTO[] = [];
+  page: number = 0;
 
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public navParams: NavParams,
-    public eventoService : EventoService,
-    public loadingControl : LoadingController) {
+    public eventoService: EventoService,
+    public loadingControl: LoadingController) {
   }
 
   ionViewDidLoad() {
     this.loadData();
   }
 
-  loadData(){
+  loadData() {
     let loader = this.presentloading();
     this.eventoService.findAll()
-    .subscribe(response => {
-      this.items = response; 
-      loader.dismiss()},
- 
-    error => {loader.dismiss()});
+      .subscribe(response => {
+        this.items = response;
+        loader.dismiss()
+      },
+
+        error => { loader.dismiss() });
   }
 
-  showDetail(evento_id : string){
-    this.navCtrl.push('EventoDetailPage', {evento_id : evento_id});
+  showDetail(evento_id: string) {
+    this.navCtrl.push('EventoDetailPage', { evento_id: evento_id });
   }
 
-  presentloading(){
+  presentloading() {
     let loader = this.loadingControl.create({
-      content : "Por favor, espere...",
+      content: "Por favor, espere...",
     });
     loader.present();
     return loader;
@@ -55,8 +56,8 @@ export class EventosPage {
     }, 1000);
   }
 
-  doinfinite(infiniteScroll){
-    this.page ++;
+  doinfinite(infiniteScroll) {
+    this.page++;
     this.loadData();
     setTimeout(() => {
       infiniteScroll.complete();

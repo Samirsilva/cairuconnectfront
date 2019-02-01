@@ -1,26 +1,26 @@
 <ion-header>
 
-    <ion-navbar>
-      <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-      <ion-title>Noticias</ion-title>
-    </ion-navbar>
-  </ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Noticias</ion-title>
+  </ion-navbar>
+</ion-header>
 
 <ion-content padding>
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content></ion-refresher-content>  
+    <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
-<ion-card ion-item *ngFor = "let item of items" (click) = "showDetail(item.id)">
+  <ion-card ion-item *ngFor="let item of items" (click)="showDetail(item.id)">
     <img src="{{bucketUrl}}/notice{{item.id}}.jpg">
     <ion-card-content>
       <ion-card-title>
         {{ item.informe}}
       </ion-card-title>
       <p>
-      Fonte: {{ item.fonte}}
-      </p>    
+        Fonte: {{ item.fonte}}
+      </p>
     </ion-card-content>
-</ion-card>
+  </ion-card>
 </ion-content>

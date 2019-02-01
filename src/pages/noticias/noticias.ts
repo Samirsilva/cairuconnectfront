@@ -10,33 +10,33 @@ import { NoticiaService } from '../../services/domain/noticia.service';
   templateUrl: 'noticias.html',
 })
 export class NoticiasPage {
- 
-  bucketUrl : string = API_CONFIG.bucketBaseUrl
-  items  : NoticiaDTO[];
+
+  bucketUrl: string = API_CONFIG.bucketBaseUrl
+  items: NoticiaDTO[];
 
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public navParams: NavParams,
-    public noticiaService : NoticiaService,
-    public loadingControl : LoadingController) {
+    public noticiaService: NoticiaService,
+    public loadingControl: LoadingController) {
   }
- 
+
   ionViewDidLoad() {
     this.loadData();
   }
-  loadData(){
+  loadData() {
     let loader = this.presentloading();
-    this.noticiaService.findAll().subscribe(response => {this.items = response;loader.dismiss()},
-    error => {loader.dismiss()});
-  }
-  
-  showDetail(noticia_id : string){
-    this.navCtrl.push('NoticiasDetailPage', {noticia_id : noticia_id});
+    this.noticiaService.findAll().subscribe(response => { this.items = response; loader.dismiss() },
+      error => { loader.dismiss() });
   }
 
-  presentloading(){
+  showDetail(noticia_id: string) {
+    this.navCtrl.push('NoticiasDetailPage', { noticia_id: noticia_id });
+  }
+
+  presentloading() {
     let loader = this.loadingControl.create({
-      content : "Por favor, espere...",
+      content: "Por favor, espere...",
     });
     loader.present();
     return loader;
