@@ -38,7 +38,8 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+  verdea:     #98FB98
 );
 
 
@@ -47,6 +48,12 @@ $colors: (
 // iOS only Sass variables can go here
 
 
+$tabs-tab-color-active: color($colors, secondary);
+$tabs-background: color($colors, primary);
+$background-color: rgba(0, 0, 0, 0.0);
+$list-border-color: color($colors, light);
+$card-md-header-color: #222;
+$card-ios-header-color: #222;
 
 
 // App Material Design Variables

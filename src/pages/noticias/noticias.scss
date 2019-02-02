@@ -1,10 +1,12 @@
 page-noticias {
     .content {
-        background-color: #cbf7c7;
-        background-image: url(../../assets/imgs/bg.png) no-repeat center center fixed; 
+        background-image: linear-gradient(to bottom right, #98FB98, #008B8B);
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;  
+    }
+    .itens{
+        background-color:rgba(0, 0, 0, 0.0);
     }
 }

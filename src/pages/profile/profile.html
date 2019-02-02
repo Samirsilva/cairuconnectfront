@@ -1,6 +1,6 @@
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar transparent>
       <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
         </button>
@@ -15,18 +15,19 @@
   </ion-avatar>
   <h2 text-center>{{usuario?.nome}}</h2>
   <p text-center>{{usuario?.email}}</p>
-
-  <ion-card>
-    <ion-card-header>
-      Enviar imagem de perfil
-    </ion-card-header>
-    <ion-item *ngIf="picture">
-      <img [src]="picture">
-    </ion-item>
-    <ion-item>
-      <button ion-button block (click)="getCameraPicture()" [disabled]="cameraOn">Câmera</button>
-      <button *ngIf="picture" ion-button outline block (click)="sendPicture()" >Enviar Foto</button>
-      <button *ngIf="picture" ion-button block (click)="cancel()" >Descartar Foto</button>
-    </ion-item>
-  </ion-card>
+  <ion-footer no-border>
+      <ion-toolbar transparent>
+          <ion-card>
+              <ion-card-header>
+              </ion-card-header>
+              <ion-item *ngIf="picture">
+                <img [src]="picture">
+              </ion-item>
+              <ion-item>
+                <button ion-button block (click)="getCameraPicture()" [disabled]="cameraOn">Câmera</button>
+                <button *ngIf="picture" ion-button outline block (click)="sendPicture()">Salvar foto</button>
+                <button *ngIf="picture" ion-button block (click)="cancel()"> Excluir</button>
+              </ion-item>
+            </ion-card>      </ion-toolbar>
+  </ion-footer>
 </ion-content>

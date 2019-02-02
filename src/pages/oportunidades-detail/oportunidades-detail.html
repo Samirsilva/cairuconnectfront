@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar transparent>
     <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
     </button>
@@ -13,31 +13,74 @@
     <ion-card-content>
       <ion-card-title>
         {{item?.nomeEmpresa}}
-        </ion-card-title>
-      <p>
-        {{item?.curso}}
-      </p>
-      <p>
-        {{item?.semestre}}
-      </p>
-      <p>
-        {{item?.email}}
-      </p>
-      <p>
-        {{item?.tipoVaga}}
-      </p>
-      <p>
-        {{item?.cargaHoraria}}
-      </p>
-      <p>
-        {{item?.remuneracao}}
-      </p>
-      <p>
-        {{item?.beneficios}}
-      </p>
-      <p>
-        {{item?.requisitos}}
-      </p>
+      </ion-card-title>
+      <ion-grid>
+          <ion-row>
+            <ion-col>
+              <strong>Curso</strong>
+            </ion-col>
+            <ion-col>
+              {{item?.curso}}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col>
+                <strong>Semestre</strong>
+              </ion-col>
+              <ion-col>
+                {{item?.semestre}}
+              </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col>
+                <strong>Email</strong>
+              </ion-col>
+              <ion-col>
+                {{item?.email}}
+              </ion-col>
+          </ion-row>   
+          <ion-row>
+              <ion-col>
+                <strong>Tipo da vaga</strong>
+              </ion-col>
+              <ion-col>
+                {{item?.tipoVaga}}
+              </ion-col>
+          </ion-row>   
+          <ion-row>
+              <ion-col>
+                <strong>Carga horária</strong>
+              </ion-col>
+              <ion-col>
+                {{item?.cargaHoraria}}
+              </ion-col>
+          </ion-row>   
+          <ion-row>
+              <ion-col>
+                <strong>Remuneração</strong>
+              </ion-col>
+              <ion-col>
+                {{item?.remuneracao}}
+              </ion-col>
+          </ion-row> 
+          <ion-row>
+              <ion-col>
+                <strong>Beneficios</strong>
+              </ion-col>
+              <ion-col>
+                {{item?.beneficios}}
+              </ion-col>
+          </ion-row> 
+          <ion-row>
+              <ion-col>
+                <strong>Requisitos</strong>
+              </ion-col>
+              <ion-col>
+                {{item?.requisitos}}
+              </ion-col>
+          </ion-row>                     
+      </ion-grid>
+      
     </ion-card-content>
   </ion-card>
 
