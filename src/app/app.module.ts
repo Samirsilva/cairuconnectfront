@@ -34,6 +34,7 @@ import { ImageUtilService } from '../services/image-util.service';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    NoticiaService,
     EventoService,
     AuthInterceptorProvider,
     ErrorInterceptorProvider,
@@ -41,7 +42,6 @@ import { ImageUtilService } from '../services/image-util.service';
     StorageService,
     UsuarioService,
     OportunidadeService,
-    NoticiaService,
     ImageUtilService
   ]
 })

@@ -1,6 +1,11 @@
 export interface NoticiaDTO{
     id : string;
     informe : string;
-    fonte : string;
+    texto : string;
     imageUrl? : string;
+    fonte : string;
+    data : string;
+    nomeLink : string;
+    video : string;
+
 }

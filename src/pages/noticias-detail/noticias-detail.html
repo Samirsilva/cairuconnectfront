@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar transparent>
     <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
+      <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Detalhes da noticia</ion-title>
   </ion-navbar>
@@ -9,14 +9,37 @@
 
 <ion-content padding>
   <ion-card>
-    <img [src]="item?.imageUrl || 'assets/imgs/avatar-blank.png'"/>  
+    <img [src]="item?.imageUrl || 'assets/imgs/avatar-blank.png'" />
     <ion-card-content>
       <ion-card-title>
         {{item?.informe}}
-        </ion-card-title>
+      </ion-card-title>
       <p>
-        {{item?.fonte}} 
+        {{item?.texto}}
       </p>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <strong>Data</strong>
+          </ion-col>
+          <ion-col>
+            {{item?.data}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <strong>{{item?.nomeLink}}</strong>
+          </ion-col>
+          <ion-col>
+            {{item?.fonte}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            {{item?.video}}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-card-content>
   </ion-card>
 </ion-content>

@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar transparent>
     <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
+      <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Detalhes da oportunidade</ion-title>
   </ion-navbar>
@@ -9,78 +9,102 @@
 
 <ion-content padding>
   <ion-card>
-    <img [src]="item?.imageUrl || 'assets/imgs/avatar-blank.png'"/>  
+    <img [src]="item?.imageUrl || 'assets/imgs/avatar-blank.png'" />
     <ion-card-content>
       <ion-card-title>
         {{item?.nomeEmpresa}}
       </ion-card-title>
       <ion-grid>
-          <ion-row>
-            <ion-col>
-              <strong>Curso</strong>
-            </ion-col>
-            <ion-col>
-              {{item?.curso}}
-            </ion-col>
-          </ion-row>
-          <ion-row>
-              <ion-col>
-                <strong>Semestre</strong>
-              </ion-col>
-              <ion-col>
-                {{item?.semestre}}
-              </ion-col>
-          </ion-row>
-          <ion-row>
-              <ion-col>
-                <strong>Email</strong>
-              </ion-col>
-              <ion-col>
-                {{item?.email}}
-              </ion-col>
-          </ion-row>   
-          <ion-row>
-              <ion-col>
-                <strong>Tipo da vaga</strong>
-              </ion-col>
-              <ion-col>
-                {{item?.tipoVaga}}
-              </ion-col>
-          </ion-row>   
-          <ion-row>
-              <ion-col>
-                <strong>Carga horária</strong>
-              </ion-col>
-              <ion-col>
-                {{item?.cargaHoraria}}
-              </ion-col>
-          </ion-row>   
-          <ion-row>
-              <ion-col>
-                <strong>Remuneração</strong>
-              </ion-col>
-              <ion-col>
-                {{item?.remuneracao}}
-              </ion-col>
-          </ion-row> 
-          <ion-row>
-              <ion-col>
-                <strong>Beneficios</strong>
-              </ion-col>
-              <ion-col>
-                {{item?.beneficios}}
-              </ion-col>
-          </ion-row> 
-          <ion-row>
-              <ion-col>
-                <strong>Requisitos</strong>
-              </ion-col>
-              <ion-col>
-                {{item?.requisitos}}
-              </ion-col>
-          </ion-row>                     
+        <ion-row>
+          <ion-col>
+            <strong>Gênero</strong>
+          </ion-col>
+          <ion-col>
+            {{item?.sexo}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <strong>Email</strong>
+          </ion-col>
+          <ion-col>
+            {{item?.email}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <strong>Tipo da vaga</strong>
+          </ion-col>
+          <ion-col>
+            {{item?.tipoVaga}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <strong>Carga horária</strong>
+          </ion-col>
+          <ion-col>
+            {{item?.cargaHoraria}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <strong>Remuneração</strong>
+          </ion-col>
+          <ion-col>
+            {{item?.remuneracao}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <strong>Beneficios</strong>
+          </ion-col>
+          <ion-col>
+            {{item?.beneficios}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <strong>Requisitos</strong>
+          </ion-col>
+          <ion-col>
+            {{item?.requisitos}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <strong>Data de Inicio</strong>
+          </ion-col>
+          <ion-col>
+            {{item?.dataInicio}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <strong>Data de Término</strong>
+          </ion-col>
+          <ion-col>
+            {{item?.dataTermino}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <strong>Disponibilidade</strong>
+          </ion-col>
+          <ion-col>
+            {{item?.disponibilidade}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <strong>Quantidade de vagas</strong>
+          </ion-col>
+          <ion-col>
+            {{item?.quantidadeVagas}}
+          </ion-col>
+        </ion-row>
       </ion-grid>
-      
+
     </ion-card-content>
   </ion-card>
 
