@@ -2,7 +2,7 @@ export interface NoticiaDTO{
     id : string;
     informe : string;
     texto : string;
-    imageUrl? : string;
+    imgLink? : string;
     fonte : string;
     data : string;
     nomeLink : string;

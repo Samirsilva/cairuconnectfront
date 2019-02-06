@@ -23,13 +23,13 @@ export class NoticiasDetailPage {
     
     this.noticiaService.findById(noticia_id).subscribe(response => {
       this.item = response;
-      this.getImageIfExists()
+      //this.getImageIfExists()
     },
     error => {});
   }
   getImageIfExists(){
     this.noticiaService.getimageFromBucket(this.item.id).subscribe(response => {
-      this.item.imageUrl = `${API_CONFIG.bucketBaseUrl}/notice${this.item.id}.jpg`;
+      this.item.imgLink = `${this.item.imgLink}/notice${this.item.id}.jpg`;
     },
     
     error =>{});

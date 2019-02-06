@@ -12,5 +12,5 @@ export interface  OportunidadeDTO {
     dataTermino : string;
     disponibilidade : string;
     quantidadeVagas : string;
-    imageUrl? :string;
+    linkImg? :string;
 }

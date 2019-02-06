@@ -35,7 +35,7 @@ import { ImageUtilService } from '../services/image-util.service';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     NoticiaService,
-    EventoService,
+    //EventoService,
     AuthInterceptorProvider,
     ErrorInterceptorProvider,
     AuthService,

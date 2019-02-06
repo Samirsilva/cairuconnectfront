@@ -23,14 +23,14 @@ export class OportunidadesDetailPage {
     
     this.oportunidadeService.findById(oportunidade_id).subscribe(response => {
       this.item = response;
-      this.getImageIfExists()
+      //this.getImageIfExists()
     }, 
     error => {});
   }
 
   getImageIfExists(){
     this.oportunidadeService.getimageFromBucket(this.item.id).subscribe(response => {
-      this.item.imageUrl = `${API_CONFIG.bucketBaseUrl}/oportu${this.item.id}.jpg`;
+      this.item.linkImg = `${API_CONFIG.bucketBaseUrl}/oportu${this.item.id}.jpg`;
     },
     
     error =>{});

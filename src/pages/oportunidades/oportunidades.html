@@ -1,27 +1,35 @@
 <ion-header>
-    <ion-navbar transparent>
-      <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-      <ion-title>Oportunidades</ion-title>
-    </ion-navbar>
-  </ion-header>
+  <ion-navbar transparent>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Oportunidades</ion-title>
+  </ion-navbar>
+</ion-header>
 
 <ion-content padding>
-     
+
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-        <ion-refresher-content></ion-refresher-content>  
-  </ion-refresher>  
-  
-  <ion-card ion-item *ngFor = "let item of items" (click) = "showDetail(item.id)">
-      <img src="{{bucketUrl}}/oportu{{item.id}}.jpg">
-      <ion-card-content>
-        <ion-card-title>
-          {{ item.nomeEmpresa}}
-        </ion-card-title>
-        <p>
-        Periodo de {{ item.dataInicio}} à {{ item.dataTermino}}. 
-        </p>
-      </ion-card-content>
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-card ion-item *ngFor="let item of items" (click)="showDetail(item.id)">
+    <img [src]="item?.linkImg ||  'assets/imgs/sem_vaga.png'">
+    <ion-card-content>
+      <ion-card-title>
+        {{ item.nomeEmpresa}}
+      </ion-card-title>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <strong>Periodo</strong>
+          </ion-col>
+          <ion-col>
+            {{ item.dataInicio}} à {{ item.dataTermino}}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </ion-card-content>
   </ion-card>
 </ion-content>

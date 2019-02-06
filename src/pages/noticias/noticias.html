@@ -13,14 +13,21 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
   <ion-card ion-item *ngFor="let item of items" (click)="showDetail(item.id)">
-    <img src="{{bucketUrl}}/notice{{item.id}}.jpg">
+    <img [src]="item?.imgLink ||  'assets/imgs/sem_noticia.png'">
     <ion-card-content>
       <ion-card-title>
         {{ item.informe}}
       </ion-card-title>
-      <p>
-        Data : {{ item.data}}
-      </p>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <strong>Data</strong>
+          </ion-col>
+          <ion-col>
+            {{item?.data}}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-card-content>
   </ion-card>
 </ion-content>
