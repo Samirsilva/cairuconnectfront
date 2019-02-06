@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { API_CONFIG } from "../../config/api.config";
 import { EventoDTO } from "../../models/evento.dto";
-import { Observable } from "rxjs/Rx";
+import { Observable } from "rxjs/Observable";
 import { StorageService } from "../storage.service";
 
 @Injectable()

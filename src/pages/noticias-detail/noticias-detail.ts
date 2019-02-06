@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { NoticiaDTO } from '../../models/noticia.dto';
 import { NoticiaService } from '../../services/domain/noticia.service';
-import { API_CONFIG } from '../../config/api.config';
 
 @IonicPage()
 @Component({

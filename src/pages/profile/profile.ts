@@ -5,7 +5,6 @@ import { UsuarioDTO } from '../../models/usuario.dto';
 import { UsuarioService } from '../../services/domain/usuario.service';
 import { API_CONFIG } from '../../config/api.config';
 import { Camera, CameraOptions } from '@ionic-native/camera';
-import { DomSanitizer } from '@angular/platform-browser';
 
 @IonicPage()
 @Component({
@@ -28,11 +27,11 @@ export class ProfilePage {
     this.loadData();
   }
 
-  loadData(){
+  loadData() {
     let localUser = this.storage.getLocalUser();
     if (localUser && localUser.email) {
       this.usuarioService.findByEmail(localUser.email).subscribe(response => {
-      this.usuario = response as UsuarioDTO;
+        this.usuario = response as UsuarioDTO;
         this.getImageIfExists();
       },
 
@@ -73,16 +72,36 @@ export class ProfilePage {
     });
   }
 
+  getGalleryPicture() {
+
+    this.cameraOn = true;
+
+    const options: CameraOptions = {
+      quality: 100,
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.PNG,
+      mediaType: this.camera.MediaType.PICTURE
+    }
+
+    this.camera.getPicture(options).then((imageData) => {
+      this.picture = 'data:image/png;base64,' + imageData;
+      this.cameraOn = false;
+    }, (err) => {
+      this.cameraOn = false;
+    });
+  }
+
   sendPicture() {
     this.usuarioService.uploadPicture(this.picture)
       .subscribe(response => {
         this.picture = null;
         this.loadData();
-      }, 
-      error =>{});
+      },
+        error => { });
   }
 
-  cancel(){
+  cancel() {
     this.picture = null;
   }
 }
