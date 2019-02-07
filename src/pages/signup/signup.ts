@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UsuarioService } from '../../services/domain/usuario.service';
 @IonicPage()
@@ -16,7 +16,8 @@ export class SignupPage {
     public navParams: NavParams,
     public formBuilder : FormBuilder,
     public usuarioService : UsuarioService,
-    public alertCtrl: AlertController) {
+    public alertCtrl: AlertController,
+    public loadingControl : LoadingController) {
 
       this.formGroup = this.formBuilder.group({
         nome: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(120)]],
@@ -27,7 +28,8 @@ export class SignupPage {
   }
 
   signupUser(){
-    this.usuarioService.insert(this.formGroup.value).subscribe(response => {this.showInsertOk();},
+    let loader = this.presentloading(this.formGroup.value.nome);
+    this.usuarioService.insert(this.formGroup.value).subscribe(response => {loader.dismiss(); this.showInsertOk();},
       
     error => {});  
   }
@@ -47,5 +49,13 @@ export class SignupPage {
         ]
       });
       alert.present();
+  }
+
+  presentloading(nome : string) {
+    let loader = this.loadingControl.create({
+      content: "Criando sua conta" + nome ,
+    });
+    loader.present();
+    return loader;
   }
 }

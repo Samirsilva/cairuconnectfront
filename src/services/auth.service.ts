@@ -5,6 +5,7 @@ import { API_CONFIG } from "../config/api.config";
 import { LocalUser } from "../models/local_user";
 import { StorageService } from "./storage.service";
 import { JwtHelper } from 'angular2-jwt';
+import { ForgotDTO } from "../models/forgot.dto";
 
 @Injectable()
 export class AuthService{
@@ -50,4 +51,15 @@ export class AuthService{
     logout(){
         this.storage.setLocalUser(null);
     }
+
+    esqueciSenha(creds : ForgotDTO){
+
+        return this.http.post(`${API_CONFIG.baseUrl}/auth/forgot`,
+        creds,
+        {
+            observe : 'response',
+            responseType : 'text'
+        })
+    }
+    
 }

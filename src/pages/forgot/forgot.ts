@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the ForgotPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
+import { AuthService } from '../../services/auth.service';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 @IonicPage()
 @Component({
@@ -15,11 +10,50 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ForgotPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  formGroup : FormGroup;
+
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public formBuilder : FormBuilder,
+    public alertCtrl: AlertController,
+    public auth : AuthService,
+    public loadingControl : LoadingController) {
+
+      this.formGroup = this.formBuilder.group({
+        email: ['', [Validators.required, Validators.email]],
+      });
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ForgotPage');
+  esqueciSenha(){
+    let loader = this.presentloading();
+    this.auth.esqueciSenha(this.formGroup.value).subscribe(response => {loader.dismiss(); this.showForgotOk();},
+
+    error => {});
+    
+  }
+  showForgotOk() {  
+    let alert = this.alertCtrl.create({
+        title: 'Sucesso!',
+        message: 'Pronto, enviamos uma nova senha para seu email',
+        enableBackdropDismiss: false,
+        buttons: [
+          {
+            text: 'Ok',
+            handler: () => {
+              this.navCtrl.pop();
+            }
+          }
+        ]
+      });
+      alert.present();
   }
 
+  presentloading() {
+    let loader = this.loadingControl.create({
+      content: "Enviando nova senha...",
+    });
+    loader.present();
+    return loader;
+  }
 }

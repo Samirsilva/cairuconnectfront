@@ -53,4 +53,7 @@ creds : CredencialDTO = {
   signup(){
     this.navCtrl.push('SignupPage');
   }
+  forgot(){
+    this.navCtrl.push('ForgotPage');
+  }
 }
