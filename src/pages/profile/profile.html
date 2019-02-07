@@ -1,34 +1,53 @@
 <ion-header>
 
   <ion-navbar transparent>
-      <button ion-button menuToggle>
-          <ion-icon name="menu"></ion-icon>
-        </button>
-    <ion-title>Perfil</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{usuario?.nome}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 <ion-content padding>
   <ion-avatar>
-    <img class = "circle" [src]="usuario?.imageURL ||  'assets/imgs/avatar-blank.png'">
+    <img class="circle" [src]="usuario?.imageURL ||  'assets/imgs/avatar-blank.png'">
   </ion-avatar>
-  <h2 text-center>{{usuario?.nome}}</h2>
-  <p text-center>{{usuario?.email}}</p>
+  <p text-center></p>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <strong>Email</strong>
+      </ion-col>
+      <ion-col>
+        {{usuario?.email}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <strong>CPF</strong>
+      </ion-col>
+      <ion-col>
+        {{usuario?.cpfOuCnpj}}
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
   <ion-footer no-border>
-      <ion-toolbar transparent>
-          <ion-card>
-              <ion-card-header>
-              </ion-card-header>
-              <ion-item *ngIf="picture">
-                <img [src]="picture">
-              </ion-item>
-              <ion-item>
-                <button ion-button  block (click)="getCameraPicture()" [disabled]="cameraOn">Câmera</button>
-                <button ion-button  block (click)="getGalleryPicture()" [disabled]="cameraOn">Galeria</button>
-                <button *ngIf="picture" ion-button  outline block (click)="sendPicture()">Salvar foto</button>
-                <button *ngIf="picture" ion-button  block (click)="cancel()"> Excluir</button>
-              </ion-item>
-            </ion-card>      </ion-toolbar>
+    <ion-toolbar transparent>
+      <ion-card>
+        <ion-card-header>
+        </ion-card-header>
+        <ion-item *ngIf="picture">
+          <img [src]="picture">
+        </ion-item>
+        <ion-item>
+          <button ion-button block (click)="getCameraPicture()" [disabled]="cameraOn">Câmera</button>
+          <button *ngIf="!picture" ion-button color="secondary" block (click)="getGalleryPicture()" [disabled]="cameraOn">Galeria</button>
+          <button *ngIf="picture" ion-button outline block (click)="sendPicture()">Salvar foto</button>
+          <button *ngIf="picture" ion-button color="danger" block (click)="cancel()"> Excluir</button>
+        </ion-item>
+      </ion-card>
+    </ion-toolbar>
   </ion-footer>
 </ion-content>
