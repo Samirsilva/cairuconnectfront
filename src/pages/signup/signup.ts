@@ -31,7 +31,9 @@ export class SignupPage {
     let loader = this.presentloading(this.formGroup.value.nome);
     this.usuarioService.insert(this.formGroup.value).subscribe(response => {loader.dismiss(); this.showInsertOk();},
       
-    error => {});  
+    error => {
+      loader.dismiss();
+    });  
   }
     
   showInsertOk() {  
