@@ -1,33 +1,36 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
+import { StorageService } from '../../services/storage.service';
 import { AuthService } from '../../services/auth.service';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 
 @IonicPage()
 @Component({
-  selector: 'page-forgot',
-  templateUrl: 'forgot.html',
+  selector: 'page-trocar-senha',
+  templateUrl: 'trocar-senha.html',
 })
-export class ForgotPage {
+export class TrocarSenhaPage {
 
-  formGroup : FormGroup;
+  formGroup :FormGroup;
 
-  constructor(
-    public navCtrl: NavController, 
+  constructor(public navCtrl: NavController,
     public navParams: NavParams,
-    public formBuilder : FormBuilder,
+    public storage: StorageService,
     public alertCtrl: AlertController,
     public auth : AuthService,
+    public formBuilder : FormBuilder,
     public loadingControl : LoadingController) {
 
       this.formGroup = this.formBuilder.group({
         email: ['', [Validators.required, Validators.email]],
+        senha : ['', [Validators.required]],
+        senhaConfirmacao : ['', [Validators.required]],
       });
   }
 
-  esqueciSenha(){
+  trocarSenha(){
     let loader = this.presentloading();
-    this.auth.esqueciSenha(this.formGroup.value).subscribe(response => {loader.dismiss(); this.showForgotOk();},
+    this.auth.trocarSenha(this.formGroup.value).subscribe(response => {loader.dismiss(); this.showForgotOk();},
 
     error => {
       loader.dismiss();
@@ -37,7 +40,7 @@ export class ForgotPage {
   showForgotOk() {  
     let alert = this.alertCtrl.create({
         title: 'Sucesso!',
-        message: 'Pronto, enviamos uma nova senha para seu email',
+        message: 'Pronto, sua senha foi alterada',
         enableBackdropDismiss: false,
         buttons: [
           {
@@ -53,7 +56,7 @@ export class ForgotPage {
 
   presentloading() {
     let loader = this.loadingControl.create({
-      content: "Enviando nova senha...",
+      content: "Aguarde, estamos mudando sua senha...",
     });
     loader.present();
     return loader;

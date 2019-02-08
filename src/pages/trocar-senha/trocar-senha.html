@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Trocar Senha</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="formGroup" (ngSubmit)="trocarSenha(); $event.preventDefault()">
+    <ion-item class="itens">
+      <ion-label stacked>Confirmação de email*</ion-label>
+      <ion-input formControlName="email" type="text"></ion-input>
+    </ion-item>
+    <p class="danger" *ngIf="formGroup.controls.email.dirty && formGroup.controls.email.errors" margin-left>Email
+      inválido</p>
+    <ion-item class="itens">
+      <ion-label stacked>Senha</ion-label>
+      <ion-input formControlName="senha" type="password"></ion-input>
+    </ion-item>
+    <p class="danger" *ngIf="formGroup.controls.senha.dirty && formGroup.controls.senha.errors" margin-left>Senha
+      Inválida</p>
+    <ion-item class="itens">
+      <ion-label stacked>Repetir Senha*</ion-label>
+      <ion-input formControlName="senhaConfirmacao" type="password"></ion-input>
+    </ion-item>
+    <p class="danger" *ngIf="formGroup.controls.senhaConfirmacao.dirty && formGroup.controls.senhaConfirmacao.errors"
+      margin-left>Senha Inválida</p>
+    <ion-footer no-border>
+      <ion-toolbar transparent>
+        <button ion-button block type="submit" [disabled]="formGroup.invalid">Trocar senha</button>
+      </ion-toolbar>
+    </ion-footer>
+  </form>
+</ion-content>

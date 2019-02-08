@@ -6,6 +6,7 @@ import { LocalUser } from "../models/local_user";
 import { StorageService } from "./storage.service";
 import { JwtHelper } from 'angular2-jwt';
 import { ForgotDTO } from "../models/forgot.dto";
+import { TrocarSenhaDTO } from "../models/trocar-senha.dto";
 
 @Injectable()
 export class AuthService{
@@ -61,5 +62,13 @@ export class AuthService{
             responseType : 'text'
         })
     }
-    
+
+    trocarSenha(creds : TrocarSenhaDTO){
+        return this.http.post(`${API_CONFIG.baseUrl}/auth/trocar_senha`,
+        creds,
+        {
+            observe : 'response',
+            responseType : 'text'
+        })
+    }
 }

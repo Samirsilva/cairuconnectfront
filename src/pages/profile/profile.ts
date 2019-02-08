@@ -140,4 +140,8 @@ export class ProfilePage {
     loader.present();
     return loader;
   }
+
+  trocarSenha(){
+    this.navCtrl.push('TrocarSenhaPage');
+  }
 }

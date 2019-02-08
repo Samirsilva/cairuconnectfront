@@ -42,8 +42,9 @@
           <img [src]="picture">
         </ion-item>
         <ion-item>
-          <button ion-button block (click)="getCameraPicture()" [disabled]="cameraOn">Câmera</button>
-          <button *ngIf="!picture" ion-button color="secondary" block (click)="getGalleryPicture()" [disabled]="cameraOn">Galeria</button>
+            <button *ngIf="!picture" ion-button color="dark" block (click)="trocarSenha()" [disabled]="cameraOn">Trocar Senha</button>
+          <button ion-button block (click)="getCameraPicture()" [disabled]="cameraOn">Tirar Foto</button>
+          <button *ngIf="!picture" ion-button color="secondary" block (click)="getGalleryPicture()" [disabled]="cameraOn">Abrir Galeria</button>
           <button *ngIf="picture" ion-button outline block (click)="sendPicture()">Salvar foto</button>
           <button *ngIf="picture" ion-button color="danger" block (click)="cancel()"> Excluir</button>
         </ion-item>
