@@ -51,10 +51,9 @@ $colors: (
 $tabs-tab-color-active: color($colors, secondary);
 $tabs-background: color($colors, primary);
 $background-color: rgba(0, 0, 0, 0.0);
-$list-border-color: color($colors, light);
+$list-border-color: color($colors, secondary);
 $card-md-header-color: #222;
 $card-ios-header-color: #222;
-
 
 // App Material Design Variables
 // --------------------------------------------------

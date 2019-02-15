@@ -1,14 +1,26 @@
 <ion-menu [content]="content">
   <ion-header>
     <ion-toolbar transparent>
-      <ion-title>Menu</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <ion-content>
+  <ion-content class="menuLateral">
+    <ion-list >
+      <ion-item>
+        <button  menuClose ion-item (click)="perfil()">
+          <ion-icon name="happy" size="large"> Perfil</ion-icon> 
+        </button>
+        <button  menuClose ion-item (click)="noticias()">
+          <ion-icon name="clipboard" size="large"> </ion-icon> <strong> Noticias</strong>
+        </button>
+        <button  menuClose ion-item (click)="oportunidades()">
+          <ion-icon name="trophy" size="large"> Oportunidades </ion-icon> 
+        </button>
+      </ion-item>
+    </ion-list>
     <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
+      <button color="danger"  menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <ion-icon name="power" size="large" color= "light"> {{p.title}}</ion-icon>
       </button>
     </ion-list>
   </ion-content>

@@ -36,7 +36,7 @@ creds : CredencialDTO = {
     this.auth.refreshToken()
     .subscribe(response => {
       this.auth.sucessfullogin(response.headers.get('Authorization'));
-      this.navCtrl.setRoot('NoticiasPage');
+      this.navCtrl.setRoot('PrincipalPage');
     },
     error => {});   
   }
@@ -45,7 +45,7 @@ creds : CredencialDTO = {
     this.auth.authenticate(this.creds)
     .subscribe(response => {
       this.auth.sucessfullogin(response.headers.get('Authorization'));
-      this.navCtrl.setRoot('NoticiasPage');
+      this.navCtrl.setRoot('PrincipalPage');
     },
     error => {});
     

@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar transparent>
     <ion-title>Esqueci minha senha</ion-title>
   </ion-navbar>
 </ion-header>
@@ -7,8 +7,8 @@
 <ion-content padding>
   <form [formGroup]="formGroup" (ngSubmit)="esqueciSenha(); $event.preventDefault()">
     <ion-item class="itens">
-      <ion-label stacked>Email*</ion-label>
-      <ion-input formControlName="email" type="text"></ion-input>
+      <ion-label color="secondary" stacked>Email*</ion-label>
+      <ion-input color="secondary" formControlName="email" type="text"></ion-input>
     </ion-item>
     <p class="danger" *ngIf="formGroup.controls.email.dirty && formGroup.controls.email.errors" margin-left>Email
       inválido</p>

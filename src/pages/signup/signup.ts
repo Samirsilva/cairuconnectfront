@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UsuarioService } from '../../services/domain/usuario.service';
+import { MenuController } from 'ionic-angular/components/app/menu-controller';
 @IonicPage()
 @Component({
   selector: 'page-signup',
@@ -17,6 +18,7 @@ export class SignupPage {
     public formBuilder : FormBuilder,
     public usuarioService : UsuarioService,
     public alertCtrl: AlertController,
+    public menu: MenuController,
     public loadingControl : LoadingController) {
 
       this.formGroup = this.formBuilder.group({
@@ -60,4 +62,13 @@ export class SignupPage {
     loader.present();
     return loader;
   }
+
+  ionViewWillEnter() {
+    this.menu.swipeEnable(false);
+  }
+  
+  ionViewDidLeave() {
+    this.menu.swipeEnable(true);
+  }
+  
 }

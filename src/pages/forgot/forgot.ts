@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 import { AuthService } from '../../services/auth.service';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { MenuController } from 'ionic-angular/components/app/menu-controller';
 
 @IonicPage()
 @Component({
@@ -18,6 +19,7 @@ export class ForgotPage {
     public formBuilder : FormBuilder,
     public alertCtrl: AlertController,
     public auth : AuthService,
+    public menu: MenuController,
     public loadingControl : LoadingController) {
 
       this.formGroup = this.formBuilder.group({
@@ -58,4 +60,13 @@ export class ForgotPage {
     loader.present();
     return loader;
   }
+
+  ionViewWillEnter() {
+    this.menu.swipeEnable(false);
+  }
+  
+  ionViewDidLeave() {
+    this.menu.swipeEnable(true);
+  }
+
 }

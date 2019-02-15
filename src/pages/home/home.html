@@ -1,16 +1,16 @@
-<ion-content padding class="content">
+<ion-content padding>
 
   <img src="assets/imgs/logo.png" alt="logo">
   <form>
-    <ion-footer no-border>
+    <ion-footer no-border >
       <ion-toolbar transparent>
         <ion-item class="itens">
-          <ion-label stacked>Email</ion-label>
-          <ion-input [(ngModel)]="creds.email" name="email" type="text"></ion-input>
+          <ion-label color="secondary" stacked>Email</ion-label>
+          <ion-input color="secondary" [(ngModel)]="creds.email" name="email" type="text"></ion-input>
         </ion-item>
         <ion-item class="itens">
-          <ion-label stacked>Senha</ion-label>
-          <ion-input [(ngModel)]="creds.senha" name="senha" type="password"></ion-input>
+          <ion-label color="secondary" stacked>Senha</ion-label>
+          <ion-input color="secondary" [(ngModel)]="creds.senha" name="senha" type="password"></ion-input>
         </ion-item>
         <button ion-button block (click)="login()">Entrar</button>
         <button ion-button block outline (click)="signup()">Registrar</button>
