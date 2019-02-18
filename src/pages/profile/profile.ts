@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import { StorageService } from '../../services/storage.service';
 import { UsuarioDTO } from '../../models/usuario.dto';
 import { UsuarioService } from '../../services/domain/usuario.service';
@@ -26,6 +26,7 @@ export class ProfilePage {
     public usuarioService: UsuarioService,
     public camera: Camera,
     public sanitizer: DomSanitizer,
+    public alertCtrl: AlertController,
     public loadingControl: LoadingController) {
 
     this.profileImage = 'assets/imgs/avatar-blank.png';
@@ -123,6 +124,7 @@ export class ProfilePage {
         loader.dismiss();
         this.picture = null;
         this.getImageIfExists();
+        this.showUpdatePhotoOk();
       },
         error => {
           loader.dismiss();
@@ -143,5 +145,22 @@ export class ProfilePage {
 
   trocarSenha(){
     this.navCtrl.push('TrocarSenhaPage');
+  }
+
+  showUpdatePhotoOk() {  
+    let alert = this.alertCtrl.create({
+        title: 'Sucesso!',
+        message: 'Sua foto de perfil foi alterada, em alguns instantes ela atualizará.',
+        enableBackdropDismiss: false,
+        buttons: [
+          {
+            text: 'Ok',
+            handler: () => {
+              this.navCtrl.pop();
+            }
+          }
+        ]
+      });
+      alert.present();
   }
 }

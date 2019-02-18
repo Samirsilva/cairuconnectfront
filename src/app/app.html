@@ -8,19 +8,19 @@
     <ion-list >
       <ion-item>
         <button  menuClose ion-item (click)="perfil()">
-          <ion-icon name="happy" size="large"> Perfil</ion-icon> 
+          <ion-icon name="happy" size="large"> </ion-icon> <strong class="opLetras"> Perfil</strong>
         </button>
         <button  menuClose ion-item (click)="noticias()">
-          <ion-icon name="clipboard" size="large"> </ion-icon> <strong> Noticias</strong>
+          <ion-icon name="clipboard" size="large"> </ion-icon> <strong class="opLetras"> Noticias</strong>
         </button>
         <button  menuClose ion-item (click)="oportunidades()">
-          <ion-icon name="trophy" size="large"> Oportunidades </ion-icon> 
+          <ion-icon name="trophy" size="large">  </ion-icon>  <strong class="opLetras"> Vagas</strong>
         </button>
       </ion-item>
     </ion-list>
     <ion-list>
       <button color="danger"  menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        <ion-icon name="power" size="large" color= "light"> {{p.title}}</ion-icon>
+        <ion-icon name="power" size="large" color= "light"> </ion-icon> <strong class="opLetras"> {{p.title}}</strong>
       </button>
     </ion-list>
   </ion-content>
