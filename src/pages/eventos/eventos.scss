@@ -1,15 +1,21 @@
 page-eventos {
     .content {
-        background-image: linear-gradient(to bottom right, #98FB98, #008B8B);
+        background-color: #FFF;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;  
     }
-    .card{
+    .itens{
         background-color:rgba(0, 0, 0, 0.0);
+    }
+    p{
+        color:black;
     }
     ion-content{
         background-image: url("../assets/imgs/back.png");
-    }    
+    }   
+    ion-card{
+        background-image: url("../assets/imgs/back.png");
+    } 
 }

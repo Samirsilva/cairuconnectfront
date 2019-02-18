@@ -1,28 +1,39 @@
 <ion-menu [content]="content">
   <ion-header>
     <ion-toolbar transparent>
+      <button menuClose ion-item (click)="home()">
+        <i><strong class="opLetras"> Home</strong></i>
+      </button>
     </ion-toolbar>
   </ion-header>
 
   <ion-content class="menuLateral">
-    <ion-list >
+    <ion-list>
       <ion-item>
-        <button  menuClose ion-item (click)="perfil()">
-          <ion-icon name="happy" size="large"> </ion-icon> <strong class="opLetras"> Perfil</strong>
+        <button menuClose ion-item (click)="perfil()">
+          <ion-icon name="happy" size="large"> </ion-icon>&nbsp;&nbsp;&nbsp;<i><strong class="opLetras"> Perfil</strong></i>
         </button>
-        <button  menuClose ion-item (click)="noticias()">
-          <ion-icon name="clipboard" size="large"> </ion-icon> <strong class="opLetras"> Noticias</strong>
+        <button menuClose ion-item (click)="noticias()">
+          <ion-icon name="clipboard" size="large"> </ion-icon>&nbsp;&nbsp;&nbsp;<i><strong class="opLetras"> Noticias</strong></i>
         </button>
-        <button  menuClose ion-item (click)="oportunidades()">
-          <ion-icon name="trophy" size="large">  </ion-icon>  <strong class="opLetras"> Vagas</strong>
+        <button menuClose ion-item (click)="oportunidades()">
+          <ion-icon name="trophy" size="large"> </ion-icon>&nbsp;&nbsp;&nbsp;<i><strong class="opLetras"> Vagas</strong></i>
+        </button>
+        <button menuClose ion-item (click)="eventos()">
+          <ion-icon name="compass" size="large"> </ion-icon>&nbsp;&nbsp;&nbsp;<i><strong class="opLetras"> Eventos</strong></i>
         </button>
       </ion-item>
     </ion-list>
-    <ion-list>
-      <button color="danger"  menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        <ion-icon name="power" size="large" color= "light"> </ion-icon> <strong class="opLetras"> {{p.title}}</strong>
-      </button>
-    </ion-list>
+    <ion-footer no-border>
+      <ion-toolbar transparent>
+        <ion-list>
+          <button color="danger_menu" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+              <i><ion-icon name="power" size="large" color="light"> </ion-icon> <strong class="opLetras">
+              {{p.title}}</strong></i>
+          </button>
+        </ion-list>
+      </ion-toolbar>
+    </ion-footer>
   </ion-content>
 
 </ion-menu>

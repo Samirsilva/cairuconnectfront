@@ -26,7 +26,7 @@ export class EventoDetailPage {
     if (localUser && localUser.email) {
       this.eventoService.findById(evento_id).subscribe(response => {
         this.item = response;
-        this.getImageIfExists()
+        //this.getImageIfExists()
       }, 
       error => {
         if (error.status == 403){
@@ -39,7 +39,7 @@ export class EventoDetailPage {
   }
   getImageIfExists(){
     this.eventoService.getimageFromBucket(this.item.id).subscribe(response => {
-      this.item.imageUrl = `${API_CONFIG.bucketBaseUrl}/event${this.item.id}.jpg`;
+      this.item.img = `${API_CONFIG.bucketBaseUrl}/event${this.item.id}.jpg`;
     },
     
     error =>{});

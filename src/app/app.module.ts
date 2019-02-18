@@ -15,6 +15,7 @@ import { AuthInterceptorProvider } from '../interceptors/auth-interceptor';
 import { OportunidadeService } from '../services/domain/oportunidade.service';
 import { NoticiaService } from '../services/domain/noticia.service';
 import { ImageUtilService } from '../services/image-util.service';
+import { EventoService } from '../services/domain/evento.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { ImageUtilService } from '../services/image-util.service';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     NoticiaService,
-    //EventoService,
+    EventoService,
     AuthInterceptorProvider,
     ErrorInterceptorProvider,
     AuthService,

@@ -3,38 +3,23 @@ import { HttpClient } from "@angular/common/http";
 import { API_CONFIG } from "../../config/api.config";
 import { EventoDTO } from "../../models/evento.dto";
 import { Observable } from "rxjs/Observable";
-import { StorageService } from "../storage.service";
 
 @Injectable()
 export class EventoService{
 
-    constructor(public http: HttpClient, public storage : StorageService){
+    constructor(public http: HttpClient){
     }
 
-    findById(evento_id  :string) : Observable <EventoDTO>{
+    findById(evento_id  :string){
         return this.http.get<EventoDTO>(`${API_CONFIG.baseUrl}/eventos/${evento_id}`)
     }
 
     findAll() : Observable<EventoDTO[]> {
         return this.http.get<EventoDTO[]>(`${API_CONFIG.baseUrl}/eventos`);
     }
-    findPageEvento(page : number = 0, linesPage : number = 24) : Observable<EventoDTO[]> {
-        return this.http.get<EventoDTO[]>(`${API_CONFIG.baseUrl}/eventos?pageEventos&page=${page}&linesPage=${linesPage}`);
-    }
 
     getimageFromBucket(id : string) : Observable<any>{
         let url = `${API_CONFIG.bucketBaseUrl}/event${id}.jpg`
         return this.http.get(url, {responseType : 'blob'});
-    }
-
-    insert(obj : EventoDTO) {
-        return this.http.post(
-            `${API_CONFIG.baseUrl}/eventos`, 
-            obj,
-            { 
-                observe: 'response', 
-                responseType: 'text'
-            }
-        ); 
     }
 }

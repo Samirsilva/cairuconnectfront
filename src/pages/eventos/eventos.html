@@ -15,7 +15,7 @@
   </ion-refresher>
 
 <ion-card ion-item *ngFor = "let item of items" (click) ="showDetail(item.id)">
-    <img src="{{bucketUrl}}/event{{item.id}}.jpg">
+  <img [src]="item?.img ||  'assets/imgs/sem_evento.png'">
     <ion-card-content>
       <ion-card-title>
         {{ item.nome}}

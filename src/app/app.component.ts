@@ -50,7 +50,9 @@ export class MyApp {
       this.nav.setRoot(page.component);
     }
   }
-
+  home(){
+    this.nav.setRoot('PrincipalPage');
+  }
   perfil(){
     this.nav.setRoot('ProfilePage');
   }
@@ -60,4 +62,8 @@ export class MyApp {
   oportunidades(){
     this.nav.setRoot('OportunidadesPage');
   }
+  eventos(){
+    this.nav.setRoot('EventosPage');
+  }
+
 }
