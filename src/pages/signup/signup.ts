@@ -24,7 +24,7 @@ export class SignupPage {
       this.formGroup = this.formBuilder.group({
         nome: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(120)]],
         email: ['', [Validators.required, Validators.email]],
-        cpfOuCnpj : ['', [Validators.required, Validators.minLength(11), Validators.maxLength(14)]],
+        cpfCnpj : ['', [Validators.required, Validators.minLength(11), Validators.maxLength(14)]],
         senha : ['', [Validators.required]],
       });
   }
@@ -57,7 +57,7 @@ export class SignupPage {
 
   presentloading(nome : string) {
     let loader = this.loadingControl.create({
-      content: "Criando sua conta" + nome ,
+      content: "Criando sua conta..." + nome ,
     });
     loader.present();
     return loader;
