@@ -11,49 +11,49 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: 'home.html'
 })
 export class HomePage {
-
-creds : CredencialDTO = {
-  email: "",
-  senha: ""
-};
+  orientation: string;
+  creds: CredencialDTO = {
+    email: "",
+    senha: ""
+  };
 
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public menu: MenuController,
-    public auth : AuthService) {
+    public auth: AuthService) {
 
   }
 
   ionViewWillEnter() {
     this.menu.swipeEnable(false);
   }
-  
+
   ionViewDidLeave() {
     this.menu.swipeEnable(true);
   }
-  
-  ionViewDidEnter(){
+
+  ionViewDidEnter() {
     this.auth.refreshToken()
-    .subscribe(response => {
-      this.auth.sucessfullogin(response.headers.get('Authorization'));
-      this.navCtrl.setRoot('PrincipalPage');
-    },
-    error => {});   
+      .subscribe(response => {
+        this.auth.sucessfullogin(response.headers.get('Authorization'));
+        this.navCtrl.setRoot('PrincipalPage');
+      },
+        error => { });
   }
 
-  login(){
+  login() {
     this.auth.authenticate(this.creds)
-    .subscribe(response => {
-      this.auth.sucessfullogin(response.headers.get('Authorization'));
-      this.navCtrl.setRoot('PrincipalPage');
-    },
-    error => {});
-    
+      .subscribe(response => {
+        this.auth.sucessfullogin(response.headers.get('Authorization'));
+        this.navCtrl.setRoot('PrincipalPage');
+      },
+        error => { });
+
   }
-  signup(){
+  signup() {
     this.navCtrl.push('SignupPage');
   }
-  forgot(){
+  forgot() {
     this.navCtrl.push('ForgotPage');
   }
 }

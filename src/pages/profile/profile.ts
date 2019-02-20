@@ -15,7 +15,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class ProfilePage {
 
   usuario: UsuarioDTO;
-  picture: String;
+  picture: string;
   profileImage;
   cameraOn: boolean = false;
 
