@@ -28,7 +28,7 @@ export class NoticiasDetailPage {
   }
   getImageIfExists(){
     this.noticiaService.getimageFromBucket(this.item.id).subscribe(response => {
-      this.item.imgLink = `${this.item.imgLink}/notice${this.item.id}.jpg`;
+      this.item.linkImg = `${this.item.linkImg}/notice${this.item.id}.jpg`;
     },
     
     error =>{});

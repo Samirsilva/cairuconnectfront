@@ -8,7 +8,7 @@
   <form  [formGroup]= "formGroup" (ngSubmit)="signupUser(); $event.preventDefault()">
     <ion-item class="itens">
       <ion-label  color="secondary"stacked>Nome*</ion-label>
-      <ion-input  color="secondary"formControlName="nome" type="text"></ion-input>
+      <ion-input  color="secondary"formControlName="nome" type="text" pattern="[a-zA-Z0-9]+"></ion-input>
     </ion-item>
     <p class="danger" *ngIf="formGroup.controls.nome.dirty && formGroup.controls.nome.errors" margin-left>Valor inválido</p>
     <ion-item >

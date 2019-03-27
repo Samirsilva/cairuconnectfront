@@ -25,6 +25,7 @@ export class EventoDetailPage {
     
     if (localUser && localUser.email) {
       this.eventoService.findById(evento_id).subscribe(response => {
+
         this.item = response;
         //this.getImageIfExists()
       }, 
