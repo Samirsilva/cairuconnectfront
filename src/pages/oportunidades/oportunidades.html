@@ -17,7 +17,8 @@
     <img [src]="item?.linkImg ||  'assets/imgs/sem_vaga.png'">
     <ion-card-content>
       <ion-card-title>
-        {{ item.nomeEmpresa}}
+        {{(item?.nomeEmpresa)? item?.nomeEmpresa : "Não informado"}}
+
       </ion-card-title>
       <ion-grid>
         <ion-row>
@@ -25,7 +26,7 @@
             <strong>Email da empresa</strong>
           </ion-col>
           <ion-col>
-            {{item?.email}}
+            {{(item?.email)? item?.email : "Não informado"}}
           </ion-col>
         </ion-row>
       </ion-grid>

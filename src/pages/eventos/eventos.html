@@ -18,10 +18,11 @@
   <img [src]="item?.img ||  'assets/imgs/sem_evento.png'">
     <ion-card-content>
       <ion-card-title>
-        {{ item.nome}}
+        {{(item?.nome)? item?.nome : "Não informado"}}
       </ion-card-title>
       <p> 
-      Descrição: {{ item.descricao}}
+      Descrição: {{(item?.descricao)? item?.descricao : "Não informado"}}
+
       </p>   
     </ion-card-content>
 </ion-card>

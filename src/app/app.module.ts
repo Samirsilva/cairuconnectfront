@@ -16,6 +16,8 @@ import { OportunidadeService } from '../services/domain/oportunidade.service';
 import { NoticiaService } from '../services/domain/noticia.service';
 import { ImageUtilService } from '../services/image-util.service';
 import { EventoService } from '../services/domain/evento.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgRippleModule } from 'ng-ripple-module';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { EventoService } from '../services/domain/evento.service';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
+    HttpClientModule,      
+    BrowserAnimationsModule,
+    NgRippleModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],

@@ -1,3 +1,4 @@
+
 <ion-header>
   <ion-navbar transparent>
     <button ion-button menuToggle>
@@ -10,7 +11,7 @@
   <img src="assets/imgs/logo.png" alt="logo">
 
   <ion-grid>
-    <ion-row>
+    <!--<ion-row>
       <ion-col class="opPerfil">
         <button menuClose ion-item (click)="perfil()">
 
@@ -31,6 +32,32 @@
       <ion-col class="opEventos">
         <button menuClose ion-item (click)="eventos()">
 
+        </button>
+      </ion-col>
+    </ion-row>-->
+    <ion-row>
+      <ion-col size="2" offset="2">
+        <button ion-button block (click)="perfil()">Perfil
+            <button ripple light> </button>
+        </button>
+      </ion-col>
+
+      <ion-col size="2" offset="2">
+        <button ion-button block (click)="noticias()">Noticias
+            <button ripple light> </button>
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="2" offset="2">
+        <button ion-button block (click)="eventos()">Eventos
+            <button ripple light> </button>
+        </button>
+      </ion-col>
+
+      <ion-col size="2" offset="2">
+        <button ion-button block (click)="vagas()">Vagas
+            <button ripple light> </button>
         </button>
       </ion-col>
     </ion-row>

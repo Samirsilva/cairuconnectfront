@@ -7,28 +7,30 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding class="content">
+<ion-content padding>
   <ion-card>
     <img [src]="item?.linkImg || 'assets/imgs/sem_noticia.png'" />
     <ion-card-content>
       <ion-card-title>
-        {{item?.informe}}
+        {{(item?.informe)? item?.informe : "Não informado"}}
+
       </ion-card-title>
       <p>
-        {{item?.texto}}
+        {{(item?.texto)? item?.texto : "Não informado"}}
       </p>
       <ion-grid>
         <ion-row>
           <ion-col>
-            <strong>{{item?.nomeLink}}</strong>
+            <strong>{{(item?.nomeLink)? item?.nomeLink : "Não informado"}}
+            </strong>
           </ion-col>
           <ion-col>
-            {{item?.fonte}}
+            {{(item?.fonte)? item?.fonte : "Não informado"}}
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col>
-            {{item?.video}}
+            {{(item?.video)? item?.video : "Não informado"}}
           </ion-col>
         </ion-row>
       </ion-grid>

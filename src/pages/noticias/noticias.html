@@ -16,12 +16,12 @@
     <img [src]="item?.imgLink ||  'assets/imgs/sem_noticia.png'">
     <ion-card-content>
       <ion-card-title>
-        {{ item.informe}}
+        {{(item?.informe)? item?.informe : "Não informado"}}
       </ion-card-title>
       <ion-grid>
         <ion-row>
           <ion-col>
-            {{item?.texto}}
+            {{(item?.texto)? item?.texto : "Não informado"}}
           </ion-col>
         </ion-row>
       </ion-grid>

@@ -7,13 +7,13 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding class="content">
+<ion-content padding>
   <ion-card>
     <img [src]="item?.linkImg || 'assets/imgs/sem_vaga.png'" />
 
     <ion-card-content>
       <ion-card-title>
-        {{item?.nomeEmpresa}}
+        {{(item?.nomeEmpresa)? item?.nomeEmpresa : "Não informado"}}
       </ion-card-title>
       <ion-grid>
         <ion-row>
@@ -21,7 +21,7 @@
             <strong>Gênero</strong>
           </ion-col>
           <ion-col>
-            {{item?.sexo}}
+            {{(item?.sexo)? item?.sexo : "Não informado"}}
           </ion-col>
         </ion-row>
         <ion-row>
@@ -29,7 +29,7 @@
             <strong>Email</strong>
           </ion-col>
           <ion-col>
-            {{item?.email}}
+            {{(item?.email)? item?.email : "Não informado"}}
           </ion-col>
         </ion-row>
         <ion-row>
@@ -37,7 +37,7 @@
             <strong>Tipo da vaga</strong>
           </ion-col>
           <ion-col>
-            {{item?.tipoVaga}}
+            {{(item?.tipoVaga)? item?.tipoVaga : "Não informado"}}
           </ion-col>
         </ion-row>
         <ion-row>
@@ -45,7 +45,7 @@
             <strong>Carga horária</strong>
           </ion-col>
           <ion-col>
-            {{item?.cargaHoraria}}
+            {{(item?.cargaHoraria)? item?.cargaHoraria : "Não informado"}}
           </ion-col>
         </ion-row>
         <ion-row>
@@ -53,7 +53,7 @@
             <strong>Remuneração</strong>
           </ion-col>
           <ion-col>
-            {{item?.remuneracao}}
+            {{(item?.remuneracao)? item?.remuneracao : "Não informado"}}
           </ion-col>
         </ion-row>
         <ion-row>
@@ -61,7 +61,7 @@
             <strong>Beneficios</strong>
           </ion-col>
           <ion-col>
-            {{item?.beneficios}}
+            {{(item?.beneficios)? item?.beneficios : "Não informado"}}
           </ion-col>
         </ion-row>
         <ion-row>
@@ -69,7 +69,7 @@
             <strong>Requisitos</strong>
           </ion-col>
           <ion-col>
-            {{item?.requisitos}}
+            {{(item?.requisitos)? item?.requisitos : "Não informado"}}
           </ion-col>
         </ion-row>
         <ion-row>
@@ -77,7 +77,7 @@
             <strong>Disponibilidade</strong>
           </ion-col>
           <ion-col>
-            {{item?.disponibilidade}}
+            {{(item?.disponibilidade)? item?.disponibilidade : "Não informado"}}
           </ion-col>
         </ion-row>
         <ion-row>
@@ -85,7 +85,7 @@
             <strong>Quantidade de vagas</strong>
           </ion-col>
           <ion-col>
-            {{item?.quantidadeVagas}}
+            {{(item?.quantidadeVagas)? item?.quantidadeVagas : "Não informado"}}
           </ion-col>
         </ion-row>
       </ion-grid>
