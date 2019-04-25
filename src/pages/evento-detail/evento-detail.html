@@ -21,7 +21,10 @@
 
       <ion-row>
         <ion-col>
-          {{(item?.nome)? item?.nome : "Não informado"}}
+          <p class="ion-text-justify">
+
+            {{(item?.nome)? item?.nome : "Não informado"}}
+          </p>
         </ion-col>
       </ion-row>
 
@@ -33,21 +36,24 @@
       </ion-row>
       <ion-row>
         <ion-col>
-          {{(item?.descricao)? item?.descricao : "Descrição não informada"}}
+          <p class="ion-text-justify">
+
+            {{(item?.descricao)? item?.descricao : "Descrição não informada"}}
+          </p>
         </ion-col>
       </ion-row>
 
       <ion-row>
-          <ion-col>
-            <strong>Data do evento
-            </strong>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            {{(item?.data)? item?.data : "Data do evento não informada"}}
-          </ion-col>
-        </ion-row>
+        <ion-col>
+          <strong>Data do evento
+          </strong>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          {{(item?.data)? item?.data : "Data do evento não informada"}}
+        </ion-col>
+      </ion-row>
     </ion-card-content>
   </ion-card>
 </ion-content>
