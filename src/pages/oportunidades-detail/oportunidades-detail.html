@@ -8,13 +8,20 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card>
+  <ion-card class="ion-text-justify">
     <img [src]="item?.linkImg || 'assets/imgs/sem_vaga.png'" />
 
     <ion-card-content>
       <ion-card-title>
-        {{(item?.nomeEmpresa)? item?.nomeEmpresa : "Não informado"}}
       </ion-card-title>
+      <ion-row>
+        <ion-col>
+          <strong>Nome da empresa</strong>
+        </ion-col>
+        <ion-col>
+          {{(item?.nomeEmpresa)? item?.nomeEmpresa : "Não informado"}}
+        </ion-col>
+      </ion-row>
       <ion-grid>
         <ion-row>
           <ion-col>
@@ -28,10 +35,13 @@
           <ion-col>
             <strong>Email</strong>
           </ion-col>
+        </ion-row>
+        <ion-row>
           <ion-col>
             {{(item?.email)? item?.email : "Não informado"}}
           </ion-col>
         </ion-row>
+
         <ion-row>
           <ion-col>
             <strong>Tipo da vaga</strong>
@@ -56,30 +66,40 @@
             {{(item?.remuneracao)? item?.remuneracao : "Não informado"}}
           </ion-col>
         </ion-row>
+
         <ion-row>
           <ion-col>
-            <strong>Beneficios</strong>
+            <strong>Benefícios</strong>
           </ion-col>
+        </ion-row>
+        <ion-row>
           <ion-col>
             {{(item?.beneficios)? item?.beneficios : "Não informado"}}
           </ion-col>
         </ion-row>
+
         <ion-row>
           <ion-col>
             <strong>Requisitos</strong>
           </ion-col>
+        </ion-row>
+        <ion-row>
           <ion-col>
             {{(item?.requisitos)? item?.requisitos : "Não informado"}}
           </ion-col>
         </ion-row>
+
         <ion-row>
           <ion-col>
             <strong>Disponibilidade</strong>
           </ion-col>
+        </ion-row>
+        <ion-row>
           <ion-col>
             {{(item?.disponibilidade)? item?.disponibilidade : "Não informado"}}
           </ion-col>
         </ion-row>
+
         <ion-row>
           <ion-col>
             <strong>Quantidade de vagas</strong>

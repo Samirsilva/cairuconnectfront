@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Detalhes da noticia</ion-title>
+    <ion-title>Detalhes da notícia</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -11,26 +11,41 @@
   <ion-card>
     <img [src]="item?.linkImg || 'assets/imgs/sem_noticia.png'" />
     <ion-card-content>
-      <ion-card-title>
-        {{(item?.informe)? item?.informe : "Não informado"}}
+      <p class="ion-text-justify">
+        {{(item?.informe)? item?.informe : "Titulo não informado"}}
+      </p>
 
-      </ion-card-title>
-      <p>
-        {{(item?.texto)? item?.texto : "Não informado"}}
+      <p class="ion-text-justify">
+        {{(item?.texto)? item?.texto : "Texto não informado"}}
       </p>
       <ion-grid>
+
         <ion-row>
-          <ion-col>
-            <strong>{{(item?.nomeLink)? item?.nomeLink : "Não informado"}}
+          <ion-col class="ion-text-justify">
+            <strong>Referência:
             </strong>
           </ion-col>
-          <ion-col>
-            {{(item?.fonte)? item?.fonte : "Não informado"}}
+          <ion-col class="ion-text-justify">
+            {{(item?.nomeLink)? item?.nomeLink : " Referência não informada"}}
           </ion-col>
         </ion-row>
+
+        <ion-row>
+          <ion-col class="ion-text-justify">
+            <strong>Fonte
+            </strong>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col class="ion-text-justify">
+            {{(item?.fonte)? item?.fonte : "Link da fonte não informada"}}
+          </ion-col>
+        </ion-row>
+
         <ion-row>
           <ion-col>
-            {{(item?.video)? item?.video : "Não informado"}}
+            {{(item?.video)? item?.video : ""}}
           </ion-col>
         </ion-row>
       </ion-grid>

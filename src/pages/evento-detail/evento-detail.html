@@ -1,23 +1,53 @@
 <ion-header>
   <ion-navbar transparent>
     <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
+      <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Detalhes do evento</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-card>
-    <img [src]="item?.img || 'assets/imgs/sem_evento.png'"/>  
+  <ion-card class="ion-text-justify">
+    <img [src]="item?.img || 'assets/imgs/sem_evento.png'" />
 
     <ion-card-content>
-      <ion-card-title>
-        {{(item?.nome)? item?.nome : "Não informado"}}
-        </ion-card-title>
-      <p>
-        {{(item?.descricao)? item?.descricao : "Não informado"}}
-      </p>
+      <ion-row>
+        <ion-col>
+          <strong>Nome do evento
+          </strong>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          {{(item?.nome)? item?.nome : "Não informado"}}
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <strong>Descrição do evento
+          </strong>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          {{(item?.descricao)? item?.descricao : "Descrição não informada"}}
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+          <ion-col>
+            <strong>Data do evento
+            </strong>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            {{(item?.data)? item?.data : "Data do evento não informada"}}
+          </ion-col>
+        </ion-row>
     </ion-card-content>
   </ion-card>
 </ion-content>

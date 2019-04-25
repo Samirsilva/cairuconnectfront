@@ -4,4 +4,5 @@ export interface  EventoDTO {
     descricao : string;
     periodoLetivo: string;
     img? : string;
+    data: string;
 }

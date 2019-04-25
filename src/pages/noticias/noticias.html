@@ -4,11 +4,11 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Noticias</ion-title>
+    <ion-title>Notícias</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding class="content">
+<ion-content padding>
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
@@ -16,12 +16,12 @@
     <img [src]="item?.imgLink ||  'assets/imgs/sem_noticia.png'">
     <ion-card-content>
       <ion-card-title>
-        {{(item?.informe)? item?.informe : "Não informado"}}
+        {{(item?.informe)? item?.informe : "Titulo não informado"}}
       </ion-card-title>
       <ion-grid>
         <ion-row>
-          <ion-col>
-            {{(item?.texto)? item?.texto : "Não informado"}}
+          <ion-col class="ion-text-justify">
+            {{(item?.texto)? item?.texto : "Texto não informado"}}
           </ion-col>
         </ion-row>
       </ion-grid>

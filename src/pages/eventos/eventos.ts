@@ -12,8 +12,7 @@ import { API_CONFIG } from '../../config/api.config';
 export class EventosPage {
 
   bucketUrl: string = API_CONFIG.bucketBaseUrl
-  items: EventoDTO[] = [];
-  page: number = 0;
+  items: EventoDTO[];
 
   constructor(
     public navCtrl: NavController,
@@ -53,14 +52,6 @@ export class EventosPage {
     this.loadData();
     setTimeout(() => {
       refresher.complete();
-    }, 1000);
-  }
-
-  doinfinite(infiniteScroll) {
-    this.page++;
-    this.loadData();
-    setTimeout(() => {
-      infiniteScroll.complete();
     }, 1000);
   }
 }
